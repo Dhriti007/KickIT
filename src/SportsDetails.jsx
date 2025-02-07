@@ -1,5 +1,3 @@
-import React from "react";
-import sports from "./AllEvents";
 import PropTypes from "prop-types";
 function SportsDetails(props) {
   const footballStyle = {
@@ -24,7 +22,7 @@ function SportsDetails(props) {
         style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
       >
         <div className={props.name} style={footballStyle}>
-          <h4>Football:</h4>
+          <h4>{props.name}:</h4>
           <div style={eventDetailsStyle}>
             <span>Venue: </span>
             <span>Time: </span>
@@ -35,5 +33,9 @@ function SportsDetails(props) {
     </>
   );
 }
+
+SportsDetails.propTypes = {
+  name: PropTypes.string.isRequired
+};
 
 export default SportsDetails;

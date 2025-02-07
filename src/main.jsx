@@ -78,7 +78,7 @@ const router = createBrowserRouter([
       <div>
         <Navbar />
         <Tournament />
-        <SportsAnim />
+        <SportsAnim/>
       </div>
     ),
   },

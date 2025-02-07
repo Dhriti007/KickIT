@@ -125,11 +125,16 @@ function AllEvents() {
         <button style={stylebutton} onClick={ClickSports}>
           Badminton
         </button>
+        <button style={stylebutton} onClick={ClickSports}>
+        Tennis
+        </button>
       </div>
 
       <SportsDetails name="football" />
       <SportsDetails name="Cricker" />
       <SportsDetails name="Badminton" />
+      <SportsDetails name="Tennis" />
+      <SportsDetails name="Tennis" />
     </>
   );
 }
