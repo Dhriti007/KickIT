@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import SportsDetails from "./SportsDetails";
-import { width } from "@fortawesome/free-brands-svg-icons/fa42Group";
 function AllEvents() {
   const iconStyle = {
     position: "absolute",
