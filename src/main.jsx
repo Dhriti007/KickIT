@@ -10,6 +10,9 @@ import JoinUs from "./JoinUs.jsx";
 import CreateEvent from "./CreateEvent.jsx";
 import AllEvents from "./AllEvents.jsx";
 import Tournament from "./Tournament.jsx";
+import Profile from "./profile.jsx"
+import UpdateProfile from "./updateProfile.jsx"
+import ChatApp from "./chatApp.jsx"
 import {
   RouterProvider,
   createBrowserRouter,
@@ -31,6 +34,33 @@ const router = createBrowserRouter([
       <div>
         <Navbar />
         <About />
+        <SportsAnim />
+      </div>
+    ),
+  },
+  {
+    path:"/profile",
+    element: (
+      <div>
+        <Profile/>
+        <SportsAnim />
+      </div>
+    ),
+  },
+  {
+    path:"/chatApp",
+    element: (
+      <div>
+        <ChatApp/>
+        <SportsAnim />
+      </div>
+    ),
+  },
+  {
+    path:"/profileUpdate",
+    element: (
+      <div>
+        <UpdateProfile/>
         <SportsAnim />
       </div>
     ),

@@ -18,8 +18,30 @@ function AuthModal({ isOpen, onClose, onSubmit }) {
   });
 
   const handleSubmit = (e) => {
+    
+    let url=e==='signup'?"http://127.0.0.1:8000/KickIt/signUp":"http://127.0.0.1:8000/KickIt/login/"
     e.preventDefault();
     onSubmit(activeTab, formData);
+   if(formData.confirmPassword){
+    url="http://127.0.0.1:8000/KickIt/signUp"
+   }
+   else{
+    url="http://127.0.0.1:8000/KickIt/login/"
+   }
+    const options = {
+      method: "POST",
+      credentials:'include',
+      withCredentials:true,
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify(formData),
+    };
+
+    fetch(`${url}`, options)
+      .then((res) =>res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Error:", error));
   };
 
   const handleChange = (e) => {

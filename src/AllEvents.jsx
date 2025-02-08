@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useRef,useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import SportsDetails from "./SportsDetails";
 function AllEvents() {
+
+ const [query,setQuery]=useState('')
+
   const iconStyle = {
     position: "absolute",
     top: "10px",
@@ -54,7 +57,8 @@ function AllEvents() {
   const handleSearchClick = () => {
     const searchValue = document.querySelector(".searchbar input").value;
     console.log("Searching for:", searchValue);
-    // Add your search logic here
+    setQuery(searchValue)
+   
   };
   const stylebutton = {
     marginTop: "20px",
@@ -89,9 +93,8 @@ function AllEvents() {
         <button style={stylebutton}>Badminton</button>
       </div>
 
-      <SportsDetails name="football" />
-      <SportsDetails name="Cricker" />
-      <SportsDetails name="Badminton" />
+      <SportsDetails name={query} />
+     
     </>
   );
 }

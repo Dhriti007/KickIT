@@ -1,9 +1,39 @@
-import React from "react";
-import sports from "./AllEvents";
-import PropTypes from "prop-types";
+import React, { useRef, useState, useEffect } from "react";
+
 function SportsDetails(props) {
+  const [activity, setActivity] = useState('');
+  const [venue, setVenue] = useState('');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+  const [data, setData] = useState('');
+  const prevUrlRef = useRef('');
+  let x=0
+  console.log('Test Case')
+  useEffect(() => {
+
+  console.log(props)
+    const url=props.name===''?'':`?activity=${props.name}`
+    console.log(url)
+  
+    const options = {
+      method: "GET",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      }
+    }
+    fetch(`http://127.0.0.1:8000/KickIt/home${url}`, options)
+      .then((res) => res.json())
+      .then((data) => setData(data.data))
+      .catch((error) => console.log('here we go'));
+  })
+
+  x++
+
+
+
   const footballStyle = {
-    width: "800px", // Same width as search bar
+    width: "1000px", // Same width as search bar
     padding: "10px",
     backgroundColor: "white",
     color: "black",
@@ -15,23 +45,33 @@ function SportsDetails(props) {
     display: "flex",
     justifyContent: "space-between",
     marginTop: "10px",
+    fontSize: "20px" 
   };
+
+  const check = () => {
+    return data !== '';
+  }
 
   return (
     <>
-      <div
-        className="sports"
-        style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
-      >
-        <div className={props.name} style={footballStyle}>
-          <h4>Football:</h4>
+      <h1>
+        {data && Object.keys(data).map((key, i) => (
+          <div
+          className="sports" key={i}
+          style={{ display: "-moz-initial", justifyContent: "center", marginTop: "20px" }}
+        >
+          <div className={props.name} style={footballStyle}>
+          <h4 key={i}>{data[key].activity}:</h4>
           <div style={eventDetailsStyle}>
-            <span>Venue: </span>
-            <span>Time: </span>
+            <span>Venue: {data[key].venue}</span>
+            <span>Time: {data[key].time}</span>
             <span>Player Required: </span>
+            </div>
           </div>
         </div>
-      </div>
+        ))}
+      </h1>
+      
     </>
   );
 }
