@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
+import PropTypes from "prop-types";
 function SportsDetails(props) {
   const [activity, setActivity] = useState('');
   const [venue, setVenue] = useState('');
@@ -66,7 +67,7 @@ function SportsDetails(props) {
             <span>Venue: {data[key].venue}</span>
             <span>Time: {data[key].time}</span>
             <span>Player Required: </span>
-            </div>
+ z           </div>
           </div>
         </div>
         ))}

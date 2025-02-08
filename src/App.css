@@ -52,7 +52,7 @@
   background-color: white;
   color: black;
   border: 1px solid black;
-  appearance:none; /* Hide default UI */
+  appearance: none; /* Hide default UI */
 }
 
 .icon-button {

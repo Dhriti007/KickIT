@@ -12,7 +12,7 @@ function SportsAnim() {
     { icon: "⚾", name: "Baseball" },
   ];
   return (
-    <div className="sports-anim">
+    <div className="sports-anim" style={{ height: "13vh" }}>
       <div className="sports-scroll">
         <div className="sports-scroll-content">
           {[...sports, ...sports].map((sport, index) => (
